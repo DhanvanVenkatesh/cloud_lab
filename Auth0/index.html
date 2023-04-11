@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<h1>Welcome to My Website</h1>
+	<button onclick="login()">Login</button>
+	
+	<script>
+		function login() {
+			//window.location.href = "https://YOUR_DOMAIN.auth0.com/authorize?audience=YOUR_API_AUDIENCE&response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=REDIRECT_URI&scope=openid%20profile%20email";
+			window.location.href = "https://dev-7qgpx4rqrlz3ides.us.auth0.com/authorize?audience=https://mymodelapi.com&response_type=code&client_id=zK8yXbtLJzNrwg4N2klxYhqKBaWTPTJp&redirect_uri=http://127.0.0.1:5500/home.html&scope=openid%20profile%20email";
+        }
+	</script>
+</body>
+</html>
