@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dropbox File Upload and Retrieval</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropbox.js/4.0.30/Dropbox-sdk.min.js"></script>
+  <script src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="5cwjec6pmbzp4av"></script>
+</head>
+<body>
+  <h1>Dropbox File Upload and Retrieval</h1>
+  
+  <button id="chooser">Choose a file from Dropbox</button>
+  <br><br>
+  
+  <input type="file" id="file-input">
+  <br><br>
+  
+  <button id="upload">Upload to Dropbox</button>
+  
+  <script>
+    var ACCESS_TOKEN = 'sl.BcWH6zsDH9n3aH-CQ783xlEvIaQ3CnG7agxuibrg2iT6wCfuTaLD-qGn2ejs8yAJPtS2oOLHQ2d0kX0E1JtfDvCQ8Q_f3MsTLDweXWmSTAVS24oUA5xe08uVfjWAu3sWvKjo0G3Fk6k6'; // Replace with your access token
+    
+    var chooser = document.getElementById('chooser');
+
+    
+    var client = new Dropbox.Dropbox({ accessToken: ACCESS_TOKEN });
+    
+    chooser.addEventListener('click', function() {
+      var drop = Dropbox.choose({
+        success: function(files) {
+          // Handle the files array here
+          console.log(files);
+          
+      console.log(files[0].link);
+      window.location.href=files[0].link
+        },
+        linkType: 'direct',
+        multiselect: false,
+        extensions: ['.pdf', '.doc', '.docx', '.txt'] // Allowed file extensions
+      });
+     });
+
+        
+
+    
+    
+    var fileInput = document.getElementById('file-input');
+    var uploadButton = document.getElementById('upload');
+    
+    uploadButton.addEventListener('click', function() {
+      var file = fileInput.files[0];
+      
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://content.dropboxapi.com/2/files/upload');
+      xhr.setRequestHeader('Authorization', 'Bearer ' + ACCESS_TOKEN);
+      xhr.setRequestHeader('Content-Type', 'application/octet-stream');
+      xhr.setRequestHeader('Dropbox-API-Arg', JSON.stringify({
+        path: '/' + file.name,
+        mode: 'add',
+        autorename: true,
+        mute: false
+      }));
+      xhr.send(file);
+      window.alert("uploaded successfully..")
+    });
+    
+    var path = '/cloud'; // Replace with the path to the file you want to download
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://content.dropboxapi.com/2/files/download');
+    xhr.setRequestHeader('Authorization', 'Bearer ' + ACCESS_TOKEN);
+    xhr.setRequestHeader('Dropbox-API-Arg', JSON.stringify({ path: path }));
+    xhr.responseType = 'blob';
+    
+    xhr.onload = function() {
+      var blob = xhr.response;
+      var url = URL.createObjectURL(blob);
+      // Use the URL to display or download the file
+    };
+    
+    xhr.send();
+  </script>
+</body>
+</html>
