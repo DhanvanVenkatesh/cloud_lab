@@ -1,0 +1,106 @@
+ex-2
+SOAP
+File>dynamic web project or Java DEE> create> RC project new package> RC new interface> RC new class
+>RC webservice> scrollbar up(full)>next-next>launch.
+
+RESTFul
+run code index.js> node index.js> 
+postman> body > www. encoded
+
+	POST localhost:3000/insert
+	GET localhost:3000/
+	PUT localhost:3000/update/2
+	DELETE localhost:3000/del/2
+
+------------------------------------------------------
+ex-3
+FIREBASE
+
+Realtime DB
+files: firebaseConfig.js > copy paste from project settings (after npm install firebase)
+	crud.js > remember one fucntion rest same
+     		.set >CREATE
+		.on> READ
+		.update> UPDATE
+		.remove> DELETE
+
+Authentication
+
+------------------------------------------------------
+ex-4
+AUTH 0
+
+files: index.html (inside script)
+//window.location.href = "https://YOUR_DOMAIN.auth0.com/authorize?audience=YOUR_API_AUDIENCE&response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=REDIRECT_URI&scope=openid%20profile%20email";
+       home.html (Basic page)
+
+Auth0 website
+Application>create app> single page app> .....> (subsitute the respective data in the above href link)
+redirect uri (127.0.0.1:550/home.html)
+allowed callback url, allowed logout
+
+login uri (127.0.0.1:550/index.html)
+allowed web origins
+
+
+API>create api>name , https://something.com
+-------------------------------------------------------
+
+ex-5
+MONGODB
+
+DROPBOX
+
+files: dropbox.html
+	change data-app-key , ACCESS_TOKEN
+
+dropbox.com/developers>>
+>App console> create app> permissions (give all permission till contacts section)> settings ..... copy data-app-key & ACCESS_TOKEN, add (127.0.0.1) and (loaclhost) in choose domain section
+
+-------------------------------------------------------
+ex-6
+COLD MIGRATION 
+RC VM > take> snapshotname> 
+file > export appliance >vmfromsnap (remember location)>next>export
+.ova file generated
+
+
+file>import>select
+
+--------------------------------------------------------
+ex-7
+XEN 
+creat 2 server if not exist
+RC server1 > set OS> give name(regno)> set osi for OS>next-next>create
+RC VM(Regno)>Move VM> select server 2>click move> vm moved
+
+Output verification done in ADMIN SERVER MACHINE (Creation of VM)
+
+----------------------------------------------------------
+
+ex-8
+KVM Installation
+Study CMDS , 4 lines code
+
+---------------------------------------------------------
+
+ex-10
+CLOUDSIM
+https://github.com/Cloudslab/cloudsim/releases/tag/cloudsim-3.0.3
+eclipse IDE>new project>java project> name, check out use default >chose unzipped cloudsim 3.0.3 folder> next-next
+
+run sample/ modify sample acc to qs and run
+---------------------------------------------------------
+
+ex-11
+CLOUD ANALYST
+https://drive.google.com/drive/folders/1dVTXx9ycdVPfTvrCRgmhhXWffkLoHsXk?usp=sharing
+
+Netbeans> open project (3rd icon) > select unzipped cloudanalyst folder> run button
+1. configure Datacentre 
+2. configure Userbase and DC count
+3. Advance settings> RR algo/throtlled etc.
+
+Run simulation
+Show O/P
+____________________
