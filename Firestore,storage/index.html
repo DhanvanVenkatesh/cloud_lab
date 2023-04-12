@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <input type="text" placeholder="update" name="update" id="update">
     <input type="text" placeholder="email" name="Email" id="email">
     <input type="text" placeholder="password" name="password" id="pword">
     <input type="file" id="file1">
@@ -34,13 +35,13 @@
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig={
-        apiKey: "AIzaSyBwBulnyxH_sVw85zNmFWhqdRkWunKpcmE",
-      authDomain: "cloudmodelexp.firebaseapp.com",
-      databaseURL: "https://cloudmodelexp-default-rtdb.firebaseio.com",
-      projectId: "cloudmodelexp",
-      storageBucket: "cloudmodelexp.appspot.com",
-      messagingSenderId: "649872746597",
-      appId: "1:649872746597:web:d238cc4ecd3f9661027e8c"
+        apiKey: "AIzaSyC2CrI_bJYVz_9j0gpe2fbjt9CaHxyNDes",
+        authDomain: "modellab2-dd7db.firebaseapp.com",
+        projectId: "modellab2-dd7db",
+        storageBucket: "modellab2-dd7db.appspot.com",
+        messagingSenderId: "554677604854",
+        appId: "1:554677604854:web:62f7025314a5454e0637d7",
+        measurementId: "G-NLELDXSL9H"
     };
     
   
@@ -74,9 +75,10 @@
 })
 
 upd.addEventListener('click',(e)=>{
-    var email=document.getElementById('email').value;
+        var email=document.getElementById('email').value;
         var pword=document.getElementById('pword').value;
-        updateDoc(doc(db,'user2','6AZpXHvmO8EII8VWuvjA'),{
+        var update=document.getElementById('update').value;
+        updateDoc(doc(db,'user2',update),{
             'email':email,
             'password':pword
         }).then((data)=>{
@@ -85,7 +87,7 @@ upd.addEventListener('click',(e)=>{
 
 })
 signup.addEventListener('click',(e)=>{
-    var email=document.getElementById('email').value;
+        var email=document.getElementById('email').value;
         var pword=document.getElementById('pword').value;
         createUserWithEmailAndPassword(auth,email,pword).then((credential)=>{
             var user=credential.user;
