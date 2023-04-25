@@ -1,0 +1,10 @@
+1. sudo -s
+2. apt-get update
+3. apt-get install qemu-kvm
+4. apt-get install libvirt-bin bridge-utils qemu-system virt-manager
+5. nano /etc/libvirt/libvirtd.conf -> Uncomment listner_adder , ro, rw, dir=> /var/run/libvirt
+6. grep ^[^#] /etc/libvirt/libvirtd.conf
+7. /etc/init.d/service libvirtd restart
+8. /etc/init.d/service libvirtd status
+9. virsh list
+10. virt-manager
